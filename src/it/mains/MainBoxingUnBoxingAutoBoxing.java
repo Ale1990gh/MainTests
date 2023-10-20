@@ -10,8 +10,10 @@ public class MainBoxingUnBoxingAutoBoxing {
 		testUnBoxing();
 		testAutoBoxing();
 
+		ultimoTest();
+		
 	}
-	
+
 	private static void testBoxing() {
 
 		//Esempio di boxing:
@@ -45,22 +47,24 @@ public class MainBoxingUnBoxingAutoBoxing {
 
 		if (b == bWrapped) {
 			System.out.println("test valore \"b\" e \"bWrapped\": stesso valore");
-		} else if (bWrapped instanceof Boolean) {
-			System.out.println("bWrapped: " + bWrapped);			
-//		} else if (b instanceof boolean) {//Errore: Syntax error, insert "Dimensions" to complete ArrayType
-//			System.out.println("b: " + b);			
 		}
-		
-//		Object o = "stringa";
-//		Class c = b.getClass();//Cannot invoke getClass() on the primitive type boolean
-		Class c = bWrapped.getClass();//no con le classi primitive! Solo Object o classi Wrapper.
-		System.out.println("o is an instance of " + c.getName());
-		
-		NestedClass nc = new NestedClass();
-		System.out.println("nc.typeof(1): " + nc.typeof(1));
-//		System.out.println("nc.typeof(1): " + nc.typeof(false));//Errore: The method typeof(Integer) in the type MainBoxingUnBoxingAutoBoxing.NestedClass is not applicable for the arguments (boolean)
-//		System.out.println("nc.typeof(1): " + nc.typeof("test"));//Errore: The method typeof(Integer) in the type MainBoxingUnBoxingAutoBoxing.NestedClass is not applicable for the arguments (String)
+		if (bWrapped instanceof Boolean) {
+//			Object o = "stringa";
+//			Class c = b.getClass();//Cannot invoke getClass() on the primitive type boolean
+			Class c = bWrapped.getClass();//no con le classi primitive! Solo Object o classi Wrapper.
+			System.out.println("bWrapped è una istanza di " + c.getName());
+		}
+//		if (b instanceof boolean) {//Errore: Syntax error, insert "Dimensions" to complete ArrayType
+//			System.out.println("b: " + b);}
 
+	}
+
+	private static void ultimoTest() {
+		NestedClass nc = new NestedClass();
+		System.out.println("\n-----------------\nultimoTest()\n"
+								+ "nc.typeof(1): " + nc.typeof(1));
+//		System.out.println("nc.typeof(1): " + nc.typeof(false));//Errore: The method typeof(Integer) in the type MainBoxingUnBoxingAutoBoxing.NestedClass is not applicable for the arguments (boolean)
+//		System.out.println("nc.typeof(1): " + nc.typeof("test"));//Errore: The method typeof(Integer) in the type MainBoxingUnBoxingAutoBoxing.NestedClass is not applicable for the arguments (String)		
 	}
 
 	static class NestedClass {
